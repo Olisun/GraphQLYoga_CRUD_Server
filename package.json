@@ -1,0 +1,26 @@
+{
+  "name": "graphqlyoga_crud_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Olisun/GraphQLYoga_CRUD_Server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Olisun/GraphQLYoga_CRUD_Server/issues"
+  },
+  "homepage": "https://github.com/Olisun/GraphQLYoga_CRUD_Server#readme",
+  "dependencies": {
+    "graphql-yoga": "^1.18.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
