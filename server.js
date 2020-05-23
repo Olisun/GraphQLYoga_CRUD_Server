@@ -39,6 +39,8 @@ type User {
 
   type Mutation {
     createUser(name: String!, from: String!, age: Int!): User!
+    deleteUser(id: ID!): User!
+    updateUser(id: ID!, name: String, from: String, age: Int): User!
   }
 `;
 
@@ -65,7 +67,31 @@ const resolvers = {
         age: args.age
       }
       users = [...users, newUser];
-      return newUser
+      return newUser;
+    },
+    deleteUser: (args, { id }) => {
+      const userToDelete = users.find(args => args.id === id);
+      users = users.filter(user => {
+        return user.id !== userToDelete.id;
+      });
+      return userToDelete;
+    },
+    updateUser: (args, { id, name, from, age }) => {
+      let updatedUser;
+      users = users.map(user => {
+        if (user.id === id) {
+          updatedUser = {
+            id: user.id,
+            name: name !== undefined ? name : user.name,
+            from: from !== undefined ? from : user.from,
+            age: age !== undefined ? age : user.age
+          }
+          return updatedUser;
+        } else {
+          return user;
+        }
+      });
+      return updatedUser;
     }
   }
 };
